@@ -20,7 +20,6 @@ app.use("/api/quotes", quoteRoutes);
 const PORT = process.env.PORT;
 const MONGO_URI =
   "mongodb+srv://imadjohar4:imadJHR05123@cluster0.imfnysu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
 mongoose
   .connect(MONGO_URI)
   .then(() => {

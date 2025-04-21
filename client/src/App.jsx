@@ -25,7 +25,6 @@ function App() {
     </AuthProvider>
   );
 }
-
 function AppContent() {
   const { user } = useContext(AuthContext);
   return (
@@ -38,7 +37,6 @@ function AppContent() {
           <Route path="/demander-un-devis" element={<Quote />} />
           <Route path="/services" element={<Services />} />
           <Route path="/thank-you" element={<ThankYou />} />
-
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}

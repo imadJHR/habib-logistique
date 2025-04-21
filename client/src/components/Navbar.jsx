@@ -29,7 +29,7 @@ const Navbar = () => {
             <FiTruck />
           </Link>
         </div>
-
+        {/* for desktop */}
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-yellow-200 transition">
             Home
@@ -48,7 +48,7 @@ const Navbar = () => {
             Demander-un-devis
           </Link>
         </div>
-
+        {/*user button */}
         <div className="flex space-x-4 items-center">
           {user ? (
             <>
@@ -102,7 +102,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-
+      {/*small devices */}
       {isMenuOpen && (
         <div className="md:hidden rounded-xl shadow-2xl">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">

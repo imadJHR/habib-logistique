@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import VID from "../../public/hero.mp4";
 
 const services = [
   {
     title: "Transport National",
-
     image:
       "https://img.freepik.com/free-photo/buses-bus-terminal-valletta_1398-182.jpg?uid=R115960642&ga=GA1.1.519463234.1718278238&semt=ais_hybrid&w=740",
     description:
@@ -38,10 +38,12 @@ const services = [
     ],
   },
 ];
-const NewHome = () => {
+
+const Home = () => {
   return (
     <div>
-      <section className="relative lg:grid lg:h-screen lg:place-content-center overflow-hidden">
+      {/*hero section */}
+      <section className="relative h-screen bg-gray-900 text-white py-20">
         <video
           className="absolute inset-0 z-0 h-full w-full object-cover"
           autoPlay
@@ -49,41 +51,35 @@ const NewHome = () => {
           muted
           playsInline
         >
-          <source
-            src=""
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
+          <source src={VID} type="video/mp4" />
+          Votre navigateur ne supporte pas la balise vidéo.
         </video>
-
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-
-        <div className="relative z-20 mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-          <div className="max-w-prose text-left text-white">
-            <h1 className="text-4xl text-yellow-400 uppercase font-bold sm:text-5xl">
-              Transport <span className="text-white"> et </span>
-              <h1 className="text-yellow-400"> logistique </h1>
-            </h1>
-
-            <div className="mt-4 flex gap-4 sm:mt-6">
-              <Link
-                className="inline-block rounded border border-yellow-600 bg-yellow-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-yellow-700"
-                to="/demander-un-devis"
-              >
-                Demander Un Devis
-              </Link>
-
-              <Link
-                className="inline-block rounded border border-white px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-white hover:text-gray-900"
-                to="/about"
-              >
-                A propos
-              </Link>
-            </div>
+        <div className="relative z-20  mt-32 container mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-4">
+            Transport <span className="text-yellow-400">et</span> Logistique
+          </h1>
+          <p className="text-lg mb-8">
+            Votre partenaire de confiance pour tous vos besoins en transport et
+            logistique.
+          </p>
+          <div className="flex justify-center space-x-4">
+            <Link
+              to="/demander-un-devis"
+              className="bg-yellow-500 text-white px-6 py-3 rounded-full hover:bg-yellow-600 transition"
+            >
+              Demander Un Devis
+            </Link>
+            <Link
+              to="/about"
+              className="border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-gray-900 transition"
+            >
+              A propos
+            </Link>
           </div>
         </div>
       </section>
-
+      {/*Qui sommes-nous ? */}
       <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl text-yellow-600 font-bold text-center mb-8">
@@ -117,13 +113,12 @@ const NewHome = () => {
           </div>
         </div>
       </section>
-
+      {/*Nos services */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl text-yellow-600 font-bold text-center mb-12">
             Nos services
           </h2>
-
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
@@ -132,10 +127,12 @@ const NewHome = () => {
               >
                 <img
                   src={service.image}
-                  className="object-cover h-62 w-full"
-                  alt=""
+                  className="object-cover h-48 w-full rounded-t-lg"
+                  alt={service.title}
                 />
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 mt-4">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <Link
                   to="/services"
@@ -152,4 +149,4 @@ const NewHome = () => {
   );
 };
 
-export default NewHome;
+export default Home;
